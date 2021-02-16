@@ -13,5 +13,5 @@ if [ ! -f /Applications/iTerm.app/Contents/MacOS/iTerm2 ]; then
   echo "Installing iTerm"
   curl -L -o iTerm.zip "https://iterm2.com/downloads/stable/iTerm2-3_4_4.zip"
   unzip iTerm.zip
-  mv iTerm /Applications
+  mv iTerm.app /Applications
 fi
