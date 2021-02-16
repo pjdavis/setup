@@ -4,5 +4,6 @@ if [ ! -f /Applications/Firefox.app/Contents/MacOS/firefox ]; then
   curl -L -o FirefoxSetup.dmg "https://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US"
   hdiutil attach FirefoxSetup.dmg
   cp -R /Volumes/Firefox/Firefox.app /Applications
+  umount /Volumes/Firefox
   rm FirefoxSetup.dmg
 fi
