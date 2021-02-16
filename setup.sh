@@ -58,6 +58,6 @@ bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-ke
 asdf install nodejs 14.15.5
 
 
-
+brew install vim
 
 
