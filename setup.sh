@@ -1,18 +1,28 @@
-cd ~ 
-#Firefox
-if [ ! -f /Applications/Firefox.app/Contents/MacOS/firefox ]; then 
-  echo "Installing Firefox"
-  curl -L -o FirefoxSetup.dmg "https://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US"
-  hdiutil attach FirefoxSetup.dmg
-  cp -R /Volumes/Firefox/Firefox.app /Applications
-  umount /Volumes/Firefox
-  rm FirefoxSetup.dmg
+cd ~
+# Check for Homebrew,
+# Install if we don't have it
+if test ! $(which brew); then
+  echo "Installing homebrew..."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
-# iTerm2
-if [ ! -f /Applications/iTerm.app/Contents/MacOS/iTerm2 ]; then
-  echo "Installing iTerm"
-  curl -L -o iTerm.zip "https://iterm2.com/downloads/stable/iTerm2-3_4_4.zip"
-  unzip iTerm.zip
-  rm iTerm.zip
-  mv iTerm.app /Applications
-fi
+# Make sure we’re using the latest Homebrew.
+brew update
+
+# Upgrade any already-installed formulae.
+brew upgrade --all
+
+# Install GNU core utilities (those that come with OS X are outdated).
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+brew install coreutils
+sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+
+# Install some other useful utilities like `sponge`.
+brew install moreutils
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
+brew install findutils
+# Install GNU `sed`, overwriting the built-in `sed`.
+brew install gnu-sed
+
+# Install ohmyzsh
+$ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
