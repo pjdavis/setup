@@ -3,7 +3,7 @@ cd ~
 # Install if we don't have it
 if test ! $(which brew); then
   echo "Installing homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 # Make sure we’re using the latest Homebrew.
 brew update
@@ -22,6 +22,11 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed
+
+# Install Firefox
+brew install --cask firefox
+# Install iTerm
+brew install --cask iterm
 
 # Install ohmyzsh
 $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
