@@ -22,12 +22,42 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed
+brew install gnupg
 
 # Install Firefox
 brew install --cask firefox
 # Install iTerm
-brew install --cask iterm
+brew install --cask iterm2
+# Install VSC
+brew install --cask visual-studio-code
+
+# install fonts
+brew tap homebrew/cask-fonts
+brew install --cask font-caskaydia-cove-nerd-font
 
 # Install ohmyzsh
-$ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+compaudit | xargs chmod g-w,o-w
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Powerlevel 10k
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+#autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# update some stuff for asdf
+brew install coreutils curl git
+brew install asdf
+
+asdf plugin add ruby
+asdf plugin add nodejs
+asdf install ruby 2.7.2
+asdf global ruby 2.7.2
+
+bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+asdf install nodejs 14.15.5
+
+
+
+
 
