@@ -59,5 +59,6 @@ asdf install nodejs 14.15.5
 
 
 brew install vim
+brew install fzf
 
 
