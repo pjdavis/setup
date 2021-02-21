@@ -1,4 +1,7 @@
 cd ~
+
+ssh-keygen
+
 # Check for Homebrew,
 # Install if we don't have it
 if test ! $(which brew); then
@@ -60,5 +63,5 @@ asdf install nodejs 14.15.5
 
 brew install vim
 brew install fzf
-
+brew install rubymine
 
