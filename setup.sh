@@ -65,3 +65,5 @@ brew install vim
 brew install fzf
 brew install rubymine
 
+brew install postgresql
+brew install redis
