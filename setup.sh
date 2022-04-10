@@ -6,7 +6,7 @@ ssh-keygen
 # Install if we don't have it
 if test ! $(which brew); then
   echo "Installing homebrew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 # Make sure we’re using the latest Homebrew.
 brew update
@@ -48,6 +48,9 @@ git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerl
 #autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
+# Get my .zshrc file
+curl -fLo ~/.zshrc https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.zshrc
+
 # update some stuff for asdf
 brew install coreutils curl git
 brew install asdf
@@ -63,6 +66,8 @@ asdf install nodejs 14.15.5
 
 
 brew install vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.vimrc https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.vimrc
 brew install fzf
 brew install rubymine
 
