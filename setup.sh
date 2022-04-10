@@ -1,23 +1,32 @@
+#!/bin/bash
+
 cd ~
 
-ssh-keygen
+ssh-keygen -t rsa -q -f "$HOME/.ssh/id_rsa" -N ""
 
 # Check for Homebrew,
 # Install if we don't have it
 if test ! $(which brew); then
-  echo "Installing homebrew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "Installing homebrew..."
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+
+# Check for apple silicon and link the /opt/homebrew folder if so.
+if [ `uname -m` = "arm64" ]
+then
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # Make sure we’re using the latest Homebrew.
 brew update
 
 # Upgrade any already-installed formulae.
-brew upgrade --all
+brew upgrade
 
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
-sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
 # Install some other useful utilities like `sponge`.
 brew install moreutils
@@ -39,11 +48,11 @@ brew tap homebrew/cask-fonts
 brew install --cask font-caskaydia-cove-nerd-font
 
 cd ~/Library/Fonts && {
-  curl -fsSL -o "MesloLGS NF Regular.ttf" 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf'
-  curl -fsSL -o "MesloLGS NF Bold.ttf" 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf'
-  curl -fsSL -o "MesloLGS NF Italic.ttf" 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf'
-  curl -fsSL -o "MesloLGS NF Bold Italic.ttf" 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf'
-  cd -; }
+    curl -fsSL -o "MesloLGS NF Regular.ttf" 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf'
+    curl -fsSL -o "MesloLGS NF Bold.ttf" 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf'
+    curl -fsSL -o "MesloLGS NF Italic.ttf" 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf'
+    curl -fsSL -o "MesloLGS NF Bold Italic.ttf" 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf'
+cd -; }
 
 # iTerm2 Prefs
 mkdir ~/.iterm2

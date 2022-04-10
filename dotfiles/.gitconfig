@@ -1,0 +1,39 @@
+[user]
+	name = PJ Davis
+	email = pj.davis@gmail.com
+[commit]
+	gpgsign = true
+[alias]
+	co = checkout
+	cob = checkout -b
+	coo = !git fetch && git checkout
+	br = branch
+	bd = branch -d
+	bD = branch -D
+	st = status
+	aa = add -A .
+	cm = commit -m
+	aacm = !git add -A . && git commit -m
+	cp = cherry-pick
+	amend = commit --amend -m
+	po = push origin
+	fo = fetch origin
+	unstage = reset --soft HEAD^
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	sq = rebase -i
+	squash = rebase -i HEAD~
+[pager]
+	branch = false
+[delta]
+	plus-color = "#012800"
+	minus-color = "#340001"
+	syntax-theme = Monokai Extended
+[interactive]
+	diffFilter = delta --color-only
+[pull]
+	rebase = true
+[gpg]
+	program = /usr/local/bin/gpg
+[credential]
+	helper = osxkeychain
