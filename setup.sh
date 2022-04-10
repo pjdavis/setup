@@ -78,11 +78,14 @@ bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-ke
 asdf install nodejs 14.15.5
 
 
+brew install fzf
+
+# Get VIM setup
 brew install vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 curl -fLo ~/.vimrc https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.vimrc
-brew install fzf
-brew install rubymine
+vim +PlugInstall +qall
 
+brew install rubymine
 brew install postgresql
 brew install redis
