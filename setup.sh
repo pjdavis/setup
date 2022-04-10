@@ -62,6 +62,7 @@ defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
 # Install ohmyzsh
 compaudit | xargs chmod g-w,o-w
+RUNZSH=no
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Powerlevel 10k
