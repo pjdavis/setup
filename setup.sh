@@ -55,7 +55,8 @@ brew install asdf
 asdf plugin add ruby
 asdf plugin add nodejs
 asdf install ruby 2.7.2
-asdf global ruby 2.7.2
+asdf install ruby 3.1.1
+asdf global ruby 3.1.1
 
 bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 asdf install nodejs 14.15.5
