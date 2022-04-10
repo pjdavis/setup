@@ -39,16 +39,16 @@ brew tap homebrew/cask-fonts
 brew install --cask font-caskaydia-cove-nerd-font
 
 cd ~/Library/Fonts && {
-  curl -O 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf'
-  curl -O 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf'
-  curl -O 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf'
-  curl -O 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf'
+  curl -fsSL -o "MesloLGS NF Regular.ttf" 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf'
+  curl -fsSL -o "MesloLGS NF Bold.ttf" 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf'
+  curl -fsSL -o "MesloLGS NF Italic.ttf" 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf'
+  curl -fsSL -o "MesloLGS NF Bold Italic.ttf" 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf'
   cd -; }
 
 # iTerm2 Prefs
 mkdir ~/.iterm2
 curl -fLo ~/.iterm2/com.googlecode.iterm2.plist https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/com.googlecode.iterm2.plist
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/com.googlecode.iterm2.plist"
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2"
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
 # Install ohmyzsh
