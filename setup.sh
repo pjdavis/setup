@@ -63,7 +63,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 # Get my .zshrc file
 curl -fLo ~/.zshrc https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.zshrc
-
+curl -fLo ~/.p10k.zsh https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.p10k.zsh
 # update some stuff for asdf
 brew install coreutils curl git
 brew install asdf
