@@ -34,6 +34,8 @@
 [pull]
 	rebase = true
 [gpg]
-	program = /usr/local/bin/gpg
+	program = gpg
 [credential]
 	helper = osxkeychain
+[init]
+    defaultBranch = main

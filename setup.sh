@@ -89,8 +89,13 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 curl -fLo ~/.zshrc https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.zshrc
 curl -fLo ~/.p10k.zsh https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.p10k.zsh
 # update some stuff for asdf
-echo "Installing asdf, ruby and node"
+
+echo "updating curl and git"
 brew install curl git
+curl -fLo ~/.gitconfig https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.gitconfig
+curl -fLo ~/.gitignore https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.gitignore
+
+echo "Installing asdf, ruby and node"
 brew install asdf
 
 asdf plugin add ruby
@@ -98,12 +103,17 @@ asdf plugin add nodejs
 asdf install ruby 3.1.1
 asdf global ruby 3.1.1
 
+curl -fLo ~/.gemrc https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.gemrc
+curl -fLo ~/.irbrc https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.irbrc
+
 bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 asdf install nodejs 14.15.5
+curl -fLo ~/.asdfrc https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.asdfrc
 
 
 echo "Installing VIM and friends"
 brew install fzf
+curl -fLo ~/.fzf.zsh https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.fzf.zsh
 
 # Get VIM setup
 brew install vim

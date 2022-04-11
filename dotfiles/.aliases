@@ -1,0 +1,3 @@
+alias cloc='cloc --fullpath --not-match-d="(node_modules|App/ios|App/android)" --not-match-f="(yarn\.lock|package\.json|package\-lock\.json)"'
+alias be='bundle exec'
+alias ll="ls -la"

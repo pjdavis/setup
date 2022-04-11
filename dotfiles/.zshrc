@@ -79,11 +79,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git-prompt git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #
-plugins=(git ruby rake bundler rails aws zsh-autosuggestions vi-mode) 
+plugins=(asdf git ruby rails aws zsh-autosuggestions vi-mode) 
 
 source $ZSH/oh-my-zsh.sh
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -109,7 +109,12 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+source ~/.aliases
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export GPG_TTY=$(tty)
+
+FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+. /usr/local/opt/asdf/libexec/asdf.sh
