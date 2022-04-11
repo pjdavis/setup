@@ -8,7 +8,7 @@ ssh-keygen -t rsa -q -f "$HOME/.ssh/id_rsa" -N ""
 # Install if we don't have it
 if test ! $(which brew); then
     echo "Installing homebrew..."
-    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Check for apple silicon and link the /opt/homebrew folder if so.
