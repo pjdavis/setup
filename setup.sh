@@ -122,9 +122,13 @@ curl -fLo ~/.vimrc https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles
 vim +PlugInstall +qall
 
 echo "Install Rubymine app"
+brew install --cask rubymine
 
-brew install rubymine
+echo "Install Quicksilver"
+brew install --cask quicksilver
+
 echo "installing psotgresql"
 brew install postgresql
+
 echo "installing redis"
 brew install redis
