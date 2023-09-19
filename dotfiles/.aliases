@@ -1,3 +1,11 @@
 alias cloc='cloc --fullpath --not-match-d="(node_modules|App/ios|App/android)" --not-match-f="(yarn\.lock|package\.json|package\-lock\.json)"'
 alias be='bundle exec'
 alias ll="ls -la"
+
+alias mine='open -na "RubyMine.app" --args "$@"'
+
+alias startpg="/usr/local/opt/postgresql@12/bin/postgres -D /usr/local/var/postgresql@12 &"
+alias startredis="/usr/local/opt/redis/bin/redis-server /usr/local/etc/redis.conf &"
+
+alias gloc='git log --pretty=format:%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(12,trunc)%ad %C(auto,green)%<(7,trunc)%aN%C(auto,reset)%s%C(auto,red)% gD% D'
+alias glga='git log --graph --all'

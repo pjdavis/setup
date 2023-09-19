@@ -38,7 +38,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=7
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -76,10 +76,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git-prompt git textmate ruby lighthouse)
+# Example format: plugins=(aws rails git-prompt git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #
-plugins=(asdf git ruby rails aws zsh-autosuggestions vi-mode) 
+plugins=(asdf aws git kubectl macos minikube ruby rails tmux vi-mode zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,6 +97,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -109,12 +110,13 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+source ~/.scripts.zsh
 source ~/.aliases
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export GPG_TTY=$(tty)
+export GPG_TTY=$TTY
 
 FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 . /usr/local/opt/asdf/libexec/asdf.sh

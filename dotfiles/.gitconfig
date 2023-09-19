@@ -29,6 +29,10 @@
 	plus-color = "#012800"
 	minus-color = "#340001"
 	syntax-theme = Monokai Extended
+[log]
+    date = relative
+[format]
+	pretty = format:%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(12,trunc)%ad %C(auto,green)%<(18,trunc)%aN%C(auto,reset)%s%C(auto,red)% gD% D
 [interactive]
 	diffFilter = delta --color-only
 [pull]
@@ -39,3 +43,9 @@
 	helper = osxkeychain
 [init]
     defaultBranch = main
+[color]
+	ui = true
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green

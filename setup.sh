@@ -44,6 +44,8 @@ echo "gnu-sed"
 brew install gnu-sed
 echo "gnupg"
 brew install gnupg
+echo "pkg-config"
+brew install pkg-config
 
 # Install Firefox
 echo "Installing Firefox App"
@@ -100,14 +102,14 @@ brew install asdf
 
 asdf plugin add ruby
 asdf plugin add nodejs
-asdf install ruby 3.1.1
-asdf global ruby 3.1.1
+asdf install ruby 3.2.2
+asdf global ruby 3.2.2
 
 curl -fLo ~/.gemrc https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.gemrc
 curl -fLo ~/.irbrc https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.irbrc
 
 bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
-asdf install nodejs 14.15.5
+asdf install nodejs 18.10.0
 curl -fLo ~/.asdfrc https://raw.githubusercontent.com/pjdavis/setup/main/dotfiles/.asdfrc
 
 
@@ -127,7 +129,7 @@ brew install --cask rubymine
 echo "Install Quicksilver"
 brew install --cask quicksilver
 
-echo "installing psotgresql"
+echo "installing postgres"
 brew install postgresql
 
 echo "installing redis"
